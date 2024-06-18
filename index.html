@@ -1,6 +1,116 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+        <title>Korean Pronunciation</title>
+        <style type="text/css">
+            body {
+                color: #fff;
+                text-align: center;
+                background-color: #159957;
+                background-image: linear-gradient(120deg, #155799, #159957);
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            #vowels {
+                background-color: rgb(0 0 0 / 8%);
+                transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+                margin: 0 15% 0 15%;
+                padding: 1% 3% 3% 3%;
+                border-radius: 20px;
+            }
+            #single_vowels {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center; 
+            }
+            #double_vowels {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            #consonants {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                background-color: rgb(0 0 0 / 8%);
+                transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+                margin: 0 15% 0 15%;
+                padding: 3%;
+                border-radius: 20px;
+            }
+            .btn {
+                display: inline-block;
+                margin: 0.5rem;
+                color: rgba(255, 255, 255, 0.7);
+                background-color: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.2);
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 0.3rem;
+                transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+                padding: 0.75rem 1rem;
+                font-size: 1.25rem;
+                cursor: pointer;
+                width: 55px; /* ensure buttons are large enough to tap on mobile */
+                height: 55px; /* ensure buttons are large enough to tap on mobile */
+            }
+            .btn:hover {
+                color: #fff;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            .btn-div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+            .btn-div text {
+                margin-top: 0rem;
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            /* Media Queries for responsiveness */
+            @media (max-width: 768px) {
+                .btn {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 1rem;
+                    padding: 0.5rem 0.75rem;
+                }
+                .btn-div text {
+                    font-size: 0.9rem;
+                }
+                #vowels, #consonants {
+                    margin: 2%;
+                    padding: 1%;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .btn {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 0.9rem;
+                    padding: 0.4rem 0.6rem;
+                }
+                .btn-div text {
+                    font-size: 0.8rem;
+                }
+                #vowels, #consonants {
+                    margin: 1%;
+                    padding: 1%;
+                }
+            }
+        </style>
     </head>
     <body>
         <h1>韩语40音发音</h1>
@@ -16,104 +126,43 @@
 
         <h2>辅音</h2>
         <div id="consonants"></div>
-    </body>
-    <script type="text/javascript">
-        let single_vowels = ['ㅏ', 'ㅓ', 'ㅗ', 'ㅜ', 'ㅡ', 'ㅣ', 'ㅐ', 'ㅔ', 'ㅚ', 'ㅟ'];
-        let single_vowels_p = ['a', 'eo', 'o', 'u', 'eu', 'i', 'ae', 'e', 'oe', 'wi'];
-        let double_vowels = ['ㅑ', 'ㅕ', 'ㅛ', 'ㅠ', 'ㅒ', 'ㅖ', 'ㅘ', 'ㅙ', 'ㅝ', 'ㅞ', 'ㅢ'];
-        let double_vowels_p = ['ya', 'yeo', 'yo', 'yu', 'yae', 'ye', 'wa', 'wae', 'wo', 'we', 'ui'];
 
-        let consonants = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', 'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ'];
-        let consonants_p = ['g,k', 'n', 'd,t', 'r,l', 'm', 'b,p', 's', 'ng', 'j', 'ch', 'k', 't', 'p', 'h', 'kk', 'tt', 'pp', 'ss', 'jj'];
+        <script type="text/javascript">
+            let single_vowels = ['ㅏ', 'ㅓ', 'ㅗ', 'ㅜ', 'ㅡ', 'ㅣ', 'ㅐ', 'ㅔ', 'ㅚ', 'ㅟ'];
+            let single_vowels_p = ['a', 'eo', 'o', 'u', 'eu', 'i', 'ae', 'e', 'oe', 'wi'];
+            let double_vowels = ['ㅑ', 'ㅕ', 'ㅛ', 'ㅠ', 'ㅒ', 'ㅖ', 'ㅘ', 'ㅙ', 'ㅝ', 'ㅞ', 'ㅢ'];
+            let double_vowels_p = ['ya', 'yeo', 'yo', 'yu', 'yae', 'ye', 'wa', 'wae', 'wo', 'we', 'ui'];
+            let consonants = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', 'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ'];
+            let consonants_p = ['g,k', 'n', 'd,t', 'r,l', 'm', 'b,p', 's', 'ng', 'j', 'ch', 'k', 't', 'p', 'h', 'kk', 'tt', 'pp', 'ss', 'jj'];
 
-        single_vowels_div = document.getElementById("single_vowels");
-        create_buttons(single_vowels_div, single_vowels, single_vowels_p);
+            let single_vowels_div = document.getElementById("single_vowels");
+            create_buttons(single_vowels_div, single_vowels, single_vowels_p);
 
-        double_vowels_div = document.getElementById("double_vowels");
-        create_buttons(double_vowels_div, double_vowels, double_vowels_p);
+            let double_vowels_div = document.getElementById("double_vowels");
+            create_buttons(double_vowels_div, double_vowels, double_vowels_p);
 
-        consonants_div = document.getElementById("consonants");
-        create_buttons(consonants_div, consonants, consonants_p);
-        
+            let consonants_div = document.getElementById("consonants");
+            create_buttons(consonants_div, consonants, consonants_p);
 
-        function create_buttons(div, words, pronunciations) {
-            for (let i = 0; i < words.length; i++) {
-                let temp_div = document.createElement("div");
-                temp_div.className = "btn-div"
-                let btn = document.createElement("button");
-                btn.innerHTML = words[i];
-                btn.className = "btn";
-                btn.onclick = function() {
-                    let audio = new Audio("assets/audio/" + words[i] + ".mp3");
-                    audio.play();
+            function create_buttons(div, words, pronunciations) {
+                for (let i = 0; i < words.length; i++) {
+                    let temp_div = document.createElement("div");
+                    temp_div.className = "btn-div"
+                    let btn = document.createElement("button");
+                    btn.innerHTML = words[i];
+                    btn.className = "btn";
+                    btn.onclick = function() {
+                        let audio = new Audio("assets/audio/" + words[i] + ".mp3");
+                        audio.play();
+                    }
+                    temp_div.appendChild(btn);
+
+                    let text = document.createElement("text");
+                    text.innerHTML = pronunciations[i];
+                    temp_div.appendChild(text);
+                    div.appendChild(temp_div);
                 }
-                temp_div.appendChild(btn);
-
-                let text = document.createElement("text");
-                text.innerHTML = pronunciations[i];
-                temp_div.appendChild(text);
-                div.appendChild(temp_div);
             }
-        }
-        
-    </script>
-    <style type="text/css">
-        body {
-            color: #fff;
-            text-align: center;
-            background-color: #159957;
-            background-image: linear-gradient(120deg, #155799, #159957);
-        }
-        #vowels {
-            background-color: rgb(0 0 0 / 8%);
-            transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-            margin: 0 15% 0 15%;
-            padding: 1% 3% 3% 3%;
-            border-radius: 20px;
-        }
-        #single_vowels {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center; 
-        }
-        #double_vowels {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        #consonants {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            background-color: rgb(0 0 0 / 8%);
-            transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-            margin: 0 15% 0 15%;
-            padding: 3%;
-            border-radius: 20px;
-        }
-        .btn {
-            display: inline-block;
-            margin-bottom: 1rem;
-            color: rgba(255,255,255,0.7);
-            background-color: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.2);
-            border-style: solid;
-            border-width: 1px;
-            border-radius: 0.3rem;
-            transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-            padding: 0.75rem 1rem;
-            font-size: 1.25rem;
-            cursor: pointer;
-        }
-        .btn-div {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            padding: 1rem;
-        }
-    </style>
+        </script>
+    </body>
 </html>
